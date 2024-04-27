@@ -117,7 +117,7 @@ mysqli_close($conn);
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                             <div class="col-md-4 mb-3">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card">
                                     <img src="<?php echo $row['picture']; ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php
