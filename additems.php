@@ -24,7 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST['description'];
 
     // Insert staff information into the database
-    $sql = "INSERT INTO inventory (id,itemname, picture, quantity, description) VALUES ('$id','$itemname', '$picture', '$quantity', '$description')";
+    $cond="select * from inventory where id = $id";
+    $r= mysqli_query($conn,$cond);
+    if (mysqli_num_rows($r)>0) {
+        $u= "UPDATE inventory
+        SET itemname = '$itemname', picture = '$picture', quantity = '$quantity', description = '$description'
+        WHERE id = $id";
+       $a = mysqli_query($conn,$u);
+    } else {
+    $sql = "INSERT INTO inventory (id, itemname, picture, quantity, description) VALUES ('$id','$itemname', '$picture', '$quantity', '$description')";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
@@ -32,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
-
+}
 // Close connection
 mysqli_close($conn);
 ?>
@@ -84,10 +92,10 @@ mysqli_close($conn);
                 <h1>Add an item</h1>
             </div>
             <div class="LoginBody">
-                <form action='additems.php' method='POST'>
+                <form  method='POST'>
                     <div class="LoginInputsContainer">
                         <label for="">Item ID</label>
-                        <input name="id" type="text" />
+                        <input name="id" type="number" />
                     </div>
                     <div class="LoginInputsContainer">
                         <label for="">Item name</label>
