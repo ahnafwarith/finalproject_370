@@ -36,7 +36,7 @@
             transform: translateY(-5px);
         }
 
-        .staff img {
+     /*    .staff img {
             position: absolute;
             top: 50%;
             left: 20px;
@@ -44,7 +44,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-        }
+        } */
 
         .staff-details {
             padding: 20px;
@@ -136,7 +136,6 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='col-md-6 mb-4'>";
                     echo "<div class='staff'>";
-                    echo "<img src='" . $row['PICTURE'] . "' alt='" . $row['NAME'] . "'>";
                     echo "<div class='staff-details'>";
                     echo "<p class='name'>" . $row['NAME'] . "</p>";
                     echo "<p class='specialty'>" . $row['SPECIALITY'] . "</p>";
