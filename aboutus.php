@@ -109,7 +109,7 @@
     <div class='bodyM'>
         <div class="container">
         <h1>About Us</h1>        
-        <h1>New hire? <a href='update_staff.php'><button class='btn btn-outline-danger'>Update Staff</button></h1></a>
+        <h1>New hire? <a href='update_staff.php'><button class='btn btn-outline-danger'>Add Staff</button></h1></a>
 
         <div class="row">
             <?php
